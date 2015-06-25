@@ -1,0 +1,16 @@
+{
+  "name": "frontend-code-challenge",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.8.1",
+    "express": "~4.9.0",
+    "ip": "^0.3.3",
+    "lodash": "^2.4.1",
+    "path": "^0.11.14",
+    "random-seed": "^0.2.0"
+  }
+}

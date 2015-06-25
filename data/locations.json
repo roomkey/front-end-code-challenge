@@ -1,0 +1,32 @@
+{
+  "newyork": {
+    "name": "New York",
+    "country_code": "US",
+    "country_name": "United States",
+    "id": "newyork",
+    "region_code": "NY",
+    "lat": 40.75616455078125,
+    "full_name": "New York, New York, United States",
+    "lng": -73.98365020751953
+  },
+  "chicago": {
+    "name": "Chicago",
+    "country_code": "US",
+    "country_name": "United States",
+    "id": "chicago",
+    "region_code": "IL",
+    "lat": 41.88911437988281,
+    "full_name": "Chicago, Illinois, United States",
+    "lng": -87.62592315673828
+  },
+  "charlottesville": {
+    "name": "Charlottesville",
+    "country_code": "US",
+    "country_name": "United States",
+    "id": "charlottesville",
+    "region_code": "VA",
+    "lat": 38.04671096801758,
+    "full_name": "Charlottesville, Virginia, United States",
+    "lng": -78.48670196533203
+  }
+}
