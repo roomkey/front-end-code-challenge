@@ -52,7 +52,7 @@ Feel free to use a CSS framework or pre-processor. Whatever you are most comfort
 
 ## Setting Up
 
-This application reuqires [NodeJS](http://nodejs.org/download/) which you
+This application requires [NodeJS](http://nodejs.org/download/) which you
 will need to install if you have not already done so.
 
 Once you have NodeJS installed, please fork this Github repository. You
