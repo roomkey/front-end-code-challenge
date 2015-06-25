@@ -220,11 +220,19 @@ http://localhost:9696/api/locations/charlottesville/hotels/0ZEzgGG4W04s8EP05g9kr
 **We expect this challenge to involve 8 hours of work or thereabouts.**
 
 We realize that there is no way to complete a fully polished
-application in this time. This is intentional. Please treat this exercise in the same way you'd treat a hackathon, and get as far as
+application in this time. This is intentional. Please treat this exercise in
+the same way you'd treat a hackathon, and get as far as
 you can in the time given, ensuring that you focus your efforts on the
 things that will get you furthest, quickest.
 
-These should be the things that best demonstrate your skills. If you are more UI-inclinated and comfortable in the view layer, then concentrate there. If you like coming up with funky algorithms then concentrate there and don't worry so much about a pretty UI.
+These should be the things that best demonstrate your skills. If you are more
+UI-inclinated and comfortable in the view layer, then concentrate there. If you
+like coming up with funky algorithms then concentrate there and don't worry
+so much about a pretty UI.
+
+You are encouraged to include some notes about the aspects you didn't get time
+to complete and how you'd plan to develop and improve the application further
+given more time.
 
 ###What are we looking for?
 
@@ -238,6 +246,7 @@ These should be the things that best demonstrate your skills. If you are more UI
 - Readability
 - Good architectural decisions
 - Modularity
+- A solid approach to testing
 
 ## A Little Inspiration
 
