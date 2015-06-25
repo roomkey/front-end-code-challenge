@@ -254,7 +254,7 @@ If you are scratching your head for ideas, feel free to use one of the following
 
 ## Submission
 
-Email us once you have finished and send us the URL to your fork of this repository (please make sure your repo is publically available).
+Email us once you have finished and send us the URL to your fork of this repository. If your repo is not publicly available, let us know and we will provide you with the GitHub users who will require access. Feel free to create a throwaway GitHub account if you are worried about others seeing that you are working on your Room Key project.
 
 ## Found a Bug?
 
