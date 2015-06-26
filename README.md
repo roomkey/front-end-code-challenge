@@ -226,7 +226,7 @@ you can in the time given, ensuring that you focus your efforts on the
 things that will get you furthest, quickest.
 
 These should be the things that best demonstrate your skills. If you are more
-UI-inclinated and comfortable in the view layer, then concentrate there. If you
+comfortable in the view layer, then concentrate there. If you
 like coming up with funky algorithms then concentrate there and don't worry
 so much about a pretty UI.
 
