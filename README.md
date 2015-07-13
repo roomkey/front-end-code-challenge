@@ -85,7 +85,7 @@ The application provides a number of API endpoints which are a simplified form o
 HTTP GET: returns an array of all available locations that can be searched
 for hotels.
 
-Note that for the purposes of this challenge this is a very limited set of data. and so there are aonly 3 locations available.
+Note that for the purposes of this challenge this is a very limited set of data. and so there are only 3 locations available.
 
 #### /api/locations /:id
 HTTP GET: returns an object representing the location with the given `:id`.
