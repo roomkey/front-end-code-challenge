@@ -1,9 +1,6 @@
 var express     = require('express');
 var path        = require('path');
-var _           = require('lodash');
-var ip          = require('ip');
 var bodyParser  = require('body-parser');
-
 var locations   = require('./routes/locations');
 
 var app = express();
@@ -16,11 +13,4 @@ app.use(express.static(publicPath));
 
 app.use('/api/locations', locations);
 
-var server = app.listen(9696, function () {
-
-  var host = ip.address();
-  var port = server.address().port;
-
-  console.log('Server listening at http://localhost:%s and http://%s:%s', port, host, port);
-
-});
+var server = app.listen(3001);

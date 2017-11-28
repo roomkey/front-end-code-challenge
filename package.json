@@ -1,16 +1,23 @@
 {
   "name": "frontend-code-challenge",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
-    "start": "node app.js"
+    "start": "concurrently --raw \"npm run local-data-server\" \"npm run webpack-server\"",
+    "webpack-server": "webpack-dev-server",
+    "local-data-server": "node app.js"
   },
-  "dependencies": {
-    "body-parser": "~1.8.1",
-    "express": "~4.9.0",
-    "ip": "^0.3.3",
-    "lodash": "^2.4.1",
-    "path": "^0.11.14",
-    "random-seed": "^0.2.0"
+  "devDependencies": {
+    "body-parser": "1.18.2",
+    "concurrently": "3.5.1",
+    "css-loader": "0.28.7",
+    "express": "4.16.2",
+    "html-webpack-plugin": "2.30.1",
+    "json-server": "0.12.1",
+    "lodash": "4.17.4",
+    "random-seed": "0.3.0",
+    "style-loader": "0.19.0",
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.5"
   }
 }

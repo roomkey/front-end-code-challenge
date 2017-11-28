@@ -31,193 +31,84 @@ The Room Key Team
 
 ## Overview
 
-We have created a simple [NodeJS](https://nodejs.org) application which does two
-things:
+We have created a simple [NodeJS](https://nodejs.org) application which spins up
+a [Webpack]() development server that:
 
-1. Serves static content from a 'public' directory
-1. Provides a simple JSON API allowing you to perform simulated hotel searches.
+1. Bundles your code in `src/` and serves it through http://localhost:3000
+2. Serves local JSON data from `data.json` through http://localhost:3000/api/
+3. Proxies `GET` requests with an `Accept:application/json` header to https://www.roomkey.com
 
-Your challenge is to build an application that makes use of
-the data served by this API in a way you find interesting.
+Your challenge is to build a demo application that makes use of the data
+provided. You can either use the locally provided JSON, or reverse engineer some
+of our APIs on https://www.roomkey.com and use them the same way against http://localhost:3000.
 
 You can choose whichever front-end technologies you like to create this
-application. Room Key's front-end is a
-[BackboneJS](http://backbonejs.org/) application but there is no obligation
-to choose Backbone. If you prefer a functional-reactive approach using [ReactJS](http://facebook.github.io/react/) or a more fully-featured framework such as [AngularJS](https://angularjs.org/), then go for it!
+application. Feel free to make any changes to the configuration files in
+this repository, or to swap any technologies.
 
-Additionally, if you wish to enhance the NodeJS application, please feel free to do so in any way you wish. For example you may wish to introduce server-side sorting or pagination.
-
-In terms of styling and layout, again please choose whatever you prefer.
-Feel free to use a CSS framework or pre-processor. Whatever you are most comfortable with.
-
-## Setting Up
+## Getting Started
 
 This application requires [NodeJS](http://nodejs.org/download/) which you
 will need to install if you have not already done so.
 
 Once you have NodeJS installed, please fork this Github repository. You
 will need to create a GitHub account if you do not already have one for
-personal projects.
+personal projects. Finally:
 
-Next `git clone` your fork.
-
-Then install the package dependencies by running:
-
-```
-npm install
-```
-
-Once the dependencies are installed, start the application server:
-
-```
-npm start
-```
-
-Once the server is running, you can access the start page (public/index.html) at [http://localhost:9696](http://localhost:9696).
+1. `git clone` your fork
+2. Install the package dependencies by running `npm install`
+3. Start the application server by running `npm start`
+4. Open your browser to http://localhost:3000
+5. Modify the contents of the `src/` directory to create your application
 
 ## API
 
-The application provides a number of API endpoints which are a simplified form of the actual API used by the various Room Key applications:
+The application provides two ways of requesting data. The first is served from
+`data.json` through http://localhost:3000/api/. This is the quickest way to get
+started, and will not require an internet connection in order to run. The second
+is available by reverse-engineering the API calls made on https://www.roomkey.com,
+and making those same calls against http://localhost:3000, which will proxy them
+back to our production site. This will allow you to work with richer, live data.
 
-### API Endpoints
+### Local API Endpoints
 
-#### /api/locations  
-HTTP GET: returns an array of all available locations that can be searched
-for hotels.
+The local API is powered by the [json-server](https://www.npmjs.com/package/json-server)
+package. You can make several HTTP `GET` requests against this server as follows:
 
-Note that for the purposes of this challenge this is a very limited set of data. and so there are only 3 locations available.
+#### /api/locations
+Returns an array of locations that can be searched for hotels. For the purposes of this challenge this is a very limited set of data. and so there are only 3 locations available.
 
-#### /api/locations /:id
-HTTP GET: returns an object representing the location with the given `:id`.
+#### /api/locations/:locationId
+Returns an object representing the location with the given `:locationId`.
 
-Example:
+For example:
 ```
-http://localhost:9696/api/locations/charlottesville/
+http://localhost:3000/api/locations/charlottesville/
 ```
 
-#### /api/locations/:id/hotels
+#### /api/locations/:locationId/hotels
 HTTP GET: returns an array of hotels contained within the location. Two querystring parameters are required: `checkin` and `checkout` both of
 which should be provided in `yyyy-mm-dd` format.
 
-Example:
+For example:
 ```
-http://localhost:9696/api/locations/charlottesville/hotels?checkin=2016-05-02&checkout=2016-05-04
+http://localhost:3000/api/locations/charlottesville/hotels?checkin=2016-05-02&checkout=2016-05-04
 ```
 
 These date parameters determine the hotel's rate and availability (see the `nightly_rate` and `available` values). If they change, then the rates and availability will change too, again to simulate the dynamic nature of hotel pricing and availability in a real-world application.
 
-A hotel object will look something like the following. All fields are named in such a way that it should be easy to figure everything out, but if you're not sure of anything, then please reach out and ask:
+#### /api/locations/:locationId/hotels/:hotelId
 
-```json
-{
-  "description": "The Residence Inn Charlottesville, VA hotel is conveniently located just minutes from downtown, where you will find the Downtown Mall, Virginia Discovery Museum, Paramount Theatre, Charlottesville Pavilion and many shopping and dining options.",
-  "address": {
-    "postal_code": "22903",
-    "country_code": "US",
-    "country_name": "United States",
-    "region_code": "VA",
-    "region_name": "Virginia",
-    "city": "Charlottesville",
-    "line2": null,
-    "line1": "1111 Millmont Street"
-  },
-  "name": "Residence Inn Charlottesville",
-  "short_description": "The Residence Inn Charlottesville, VA hotel is conveniently located just minutes from downtown...",
-  "brand": "Residence Inn",
-  "photos": [
-    {
-      "caption": "Exterior",
-      "dimensions": [
-        689,
-        477
-      ],
-      "url": "//d29u3c1wxehloe.cloudfront.net/vfml/1073/452/29909045/big.jpg",
-      "thumbnail": "//d29u3c1wxehloe.cloudfront.net/vfml/1073/452/29909045/200x150.jpg"
-    },
-    {
-      "caption": "Front Desk",
-      "dimensions": [
-        689,
-        477
-      ],
-      "url": "//d29u3c1wxehloe.cloudfront.net/vfml/1073/452/36517841/big.jpg",
-      "thumbnail": "//d29u3c1wxehloe.cloudfront.net/vfml/1073/452/36517841/200x150.jpg"
-    },
-    {
-      "caption": "Outdoor Patio",
-      "dimensions": [
-        689,
-        477
-      ],
-      "url": "//d29u3c1wxehloe.cloudfront.net/vfml/1073/452/48799481/big.jpg",
-      "thumbnail": "//d29u3c1wxehloe.cloudfront.net/vfml/1073/452/48799481/200x150.jpg"
-    }
-  ],
-  "stars": 3,
-  "lat": 38.052145,
-  "amenities": [
-    {
-      "code": "PKG",
-      "name": "Parking"
-    },
-    {
-      "code": "FBKFST",
-      "name": "FREE Breakfast"
-    },
-    {
-      "code": "PETS",
-      "name": "Pet Friendly"
-    },
-    {
-      "code": "INT",
-      "name": "Internet"
-    },
-    {
-      "code": "POOL",
-      "name": "Pool"
-    }
-  ],
-  "distance": 1.553474382763473,
-  "lng": -78.503046,
-  "best_rate_guarantee": {
-    "description": "Find a lower hotel rate and we'll match it + give you an extra 25% discount.",
-    "heading": "Look No Further® Best Rate Guarantee",
-    "url": "http://www.marriott.com/hotel-prices/travel.mi",
-    "label": "Residence Inn's Best Rate Guarantee"
-  },
-  "id": "0ZEzgGG4W04s8EP05g9krVMw",
-  "guest_rating": 4,
-  "guest_reviews": [
-    {
-      "title": "Really Awesome Staff",
-      "summary": "I stayed at this facility for seven weeks while attending school.  Every morning I would go to eat breakfast and would be greeted by a WONDERFUL lady named Susan.  She made my day every morning with...",
-      "rating": 5
-    },
-    {
-      "title": "Hotel staff was excellent",
-      "summary": "The woman Maria ad Benny in the dining area were amazing!!  They were so pleasant, helpful and made sure you were well taken care of.!  The breakfast was always fresh and the eating area was...",
-      "rating": 4
-    }
-  ],
-  "chain": "Marriott",
-  "logo": "//d1zikkhuo9bi6f.cloudfront.net/v31.6/roomkey/images/_base/logos/brand/65x45/328.png",
-  "nightly_rate": 247.7422095791274,
-  "available": true
-}
-```
-
-#### /api/locations/:id/hotels/:hotelid
-
-Similar to `/api/locations/:id/hotels`, but returns only a single hotel object for the `:hotelid` given.
+Similar to `/api/locations/:locationId/hotels`, but returns only a single hotel object for the `:hotelId` given.
 
 Example:
 ```
-http://localhost:9696/api/locations/charlottesville/hotels/0ZEzgGG4W04s8EP05g9krVMw?checkin=2015-05-02&checkout=2015-05-04
+http://localhost:3000/api/locations/charlottesville/hotels/0ZEzgGG4W04s8EP05g9krVMw?checkin=2015-05-02&checkout=2015-05-04
 ```
 
 ## Requirements and Expectations
 
-**We expect this challenge to involve 8 hours of work or thereabouts.**
+**We expect this challenge to involve around 8 hours of work.**
 
 We realize that there is no way to complete a fully polished
 application in this time. This is intentional. Please treat this exercise in
@@ -247,19 +138,6 @@ given more time.
 - Good architectural decisions
 - Modularity
 - A solid approach to testing
-
-## A Little Inspiration
-
-If you are scratching your head for ideas, feel free to use one of the following for inspiration. But don't feel obligated to do so.
-
-- Do some research into other hotel search engines and online travel in general and improve upon an existing idea
-- A hotel shortlist
-- An innovative way to filter or sort hotels
-- A [PhoneGap](http://phonegap.com/) application
-- A map-based application
-- A hotel recommendation tool
-- Semantic search e.g. "Hotels with a pool in Charlottesville"
-- A mashup with another API or service
 
 ## Submission
 
