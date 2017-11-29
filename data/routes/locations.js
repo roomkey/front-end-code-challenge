@@ -4,7 +4,7 @@ var _          = require('lodash');
 var url        = require('url');
 var randomSeed = require('random-seed');
 
-var locations = require('../data/locations.json');
+var locations = require('../locations.json');
 
 function cloneRequiredJson(obj) {
   return JSON.parse(JSON.stringify(obj));
@@ -12,7 +12,7 @@ function cloneRequiredJson(obj) {
 
 function getHotels(location, req) {
   var querystring = url.parse(req.url, true).query;
-  var hotels = cloneRequiredJson(require('../data/hotels/' + location.id + '.json'));
+  var hotels = cloneRequiredJson(require('../hotels/' + location.id + '.json'));
 
   var checkin = Date.parse(querystring.checkin);
   var checkout = Date.parse(querystring.checkout);

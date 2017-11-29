@@ -3,7 +3,7 @@ var _     = require('lodash');
 var path  = require('path');
 
 var src = '../raw/';
-var dest = path.join(__dirname, '../data/hotels/');
+var dest = path.join(__dirname, '../hotels/');
 var locations = [
   'charlottesville',
   'newyork',
