@@ -26,13 +26,13 @@ The Room Key Team
 We have created a simple [NodeJS](https://nodejs.org) application which:
 
 1. Bundles your source code and serves it through http://localhost:3000/
-2. Provides **local** data through http://localhost:3000/api/
+2. Provides **mock** data through http://localhost:3000/api/
 3. Provides **live** data through http://localhost:3000/ by proxying JSON requests
    to our live servers
 
-Your challenge is to build something interesting that makes use of either the local
+Your challenge is to build something interesting that makes use of either the mock
 or live data provided. If you're more interested in UI/UX development, you might
-want to use the local data. It will get you up and running faster. If
+want to use the mock data. It will get you up and running faster. If
 reverse-engineering and data manipulation is more your thing, consider taking a
 stab at using our live data. See the [API](#api) section below for more details.
 
@@ -99,21 +99,21 @@ this code challenge are also very welcome.
 This NodeJS application provides two ways of requesting data, and you can choose
 whichever works best for you. It all depends on where you get your kicks.
 
-The **[Local Data API](#local-data-api)** is served through http://localhost:3000/api/.
+The **[Mock API](#mock-api)** is served through http://localhost:3000/api/.
 You might want to use this if you're interested in UI/UX development. It's the
 fastest way to get usable data on the screen, and does not require an internet
-connection. The available endpoints are [documented below](#local-data-api).
+connection. The available endpoints are [documented below](#mock-api).
 
-The **[Live Data API](#live-data-api)** is served through http://localhost:3000/
+The **[Live API](#live-api)** is served through http://localhost:3000/
 when explicitly requesting JSON data. These requests are proxied to https://www.roomkey.com.
 There is intentionally very little documentation provided for this method as
 figuring it out is part of the fun. If this sound horrible, _don't worry_. It's
 provided for those enjoy a particular brand of pain. More details and an example
-are [provided below](#live-data-api).
+are [provided below](#live-api).
 
-### Local Data API
+### Mock API
 
-The local data API is available through http://localhost:3000/api/, which is
+The mock data API is available through http://localhost:3000/api/, which is
 proxied to an express server running on port 3001 that servs the contensts of
 the `data/` folder. You can make HTTP `GET` requests against the following endpoints:
 
@@ -154,7 +154,7 @@ For Example:
 http://localhost:3000/api/locations/charlottesville/hotels/0ZEzgGG4W04s8EP05g9krVMw?checkin=2015-05-02&checkout=2015-05-04
 ```
 
-### Live Data API
+### Live API
 
 The live data API gives you richer, live data coming directly from our
 production website. It works by proxying all JSON requests to https://www.roomkey.com.
