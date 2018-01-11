@@ -182,6 +182,14 @@ the covers.
 
 Happy hunting.
 
+#### Image Paths with Live API
+
+Building image paths for the live api can use the following pattern:
+
+```
+const imageUrl = `https://d29u3c1wxehloe.cloudfront.net${photo.id}/[200x150|500x375|big].jpg```
+```
+
 ## License
 
 This project is MIT licensed. This means that you are allowed to freely use this for your personal portfolio.
