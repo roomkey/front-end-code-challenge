@@ -1,9 +1,9 @@
-Room Key Front End Development Challenge
+Roomkey Front End Development Challenge
 ========================================
 
 Greetings and salutations!
 
-Thanks for your interest in joining the team here at Room Key. Part of our
+Thanks for your interest in joining the team here at Roomkey. Part of our
 evaluation process is to set an open-ended challenge which will allow you to
 flex your creative muscles and give you an opportunity to demonstrate your
 coding skills. We think (and hope you agree) that this is better than asking
@@ -18,8 +18,8 @@ If you are successful then we'll invite you to our offices for a face-to-face
 interview and will use what you produce for this challenge as a starting
 point for our chat.
 
-Cheers!  
-The Room Key Team
+Cheers!
+The Roomkey Team
 
 ## Overview
 
