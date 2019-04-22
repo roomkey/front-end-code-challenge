@@ -187,7 +187,7 @@ Happy hunting.
 Building image paths for the live api can use the following pattern:
 
 ```
-const imageUrl = `https://d29u3c1wxehloe.cloudfront.net${photo.id}/[200x150|500x375|big].jpg```
+const imageUrl = `https://d29u3c1wxehloe.cloudfront.net${photo.id}/[200x150|500x375|big].jpg`
 ```
 
 ## License
